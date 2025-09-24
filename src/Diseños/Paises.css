@@ -1,0 +1,75 @@
+.paises-container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.headerPais {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.subtitle {
+  color: #6b7280; /* gris */
+  font-size: 14px;
+  margin: 4px 0 0 0;
+}
+
+.btn-agregar {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-agregar:hover {
+  background-color: #333;
+}
+
+.filtros {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.input-buscar {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  width: 250px;
+  font-size: 14px;
+}
+
+.btn-group {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  background-color: #f3f4f6;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn:hover {
+  background-color: #e5e7eb;
+}
+
+.btn-activo {
+  background-color: #000;
+  color: #fff;
+}

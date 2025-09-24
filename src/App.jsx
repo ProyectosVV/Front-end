@@ -6,6 +6,8 @@ import Registro from "./Vistas/Registro";
 import { Menuadmin } from "./Vistas/Menus/MenuAdmin";
 import { Home } from "./Home";
 import { PanelDeControl } from "./Vistas/Administrador/Panel-de-control";
+import { Paises } from "./Vistas/Administrador/Paises";
+
 
 function App() {
   const [user, setUser] = useState(() => {
@@ -22,6 +24,8 @@ function App() {
 
         <Route path="/admin" element={<Menuadmin />}>
              <Route index element={<PanelDeControl />} />
+            <Route path="Paises" element={<Paises />} /> 
+
          </Route>
 
 

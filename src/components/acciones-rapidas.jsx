@@ -3,6 +3,9 @@
 import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Plane, BarChart3, Calendar, Settings } from "lucide-react"
+import { Globe } from "lucide-react";
+import { Link } from "react-router-dom";
+
 import "../Diseños/acciones_rapidas.css"
 
 const actions = [
@@ -10,8 +13,7 @@ const actions = [
   { title: "Analítica", icon: BarChart3 },
   { title: "Reservas", icon: Calendar },
   { title: "Mantenimiento", icon: Settings },
-{ title: "Países", icon: Settings }
-
+  { title: "Países", icon: Globe,path: "Paises" }
 ]
 
 export function QuickActions() {
@@ -24,19 +26,18 @@ export function QuickActions() {
       </CardHeader>
       <CardContent>
         <div className="quick-grid">
-          {actions.map((action, index) => {
-            const isSelected = selected === action.title
-            return (
-              <button
-                key={index}
-                onClick={() => setSelected(action.title)}
-                className={`quick-btn ${isSelected ? "quick-btn-selected" : "quick-btn-unselected"}`}
-              >
-                <action.icon className="quick-icon" />
-                <span>{action.title}</span>
-              </button>
-            )
-          })}
+          {actions.map((action, index) => (
+  <Link
+    key={index}
+    to={action.path}
+    onClick={() => setSelected(action.title)}
+    className={`quick-btn ${selected === action.title ? "quick-btn-selected" : "quick-btn-unselected"}`}
+  >
+    <action.icon className="quick-icon" />
+    <span>{action.title}</span>
+  </Link>
+))}
+
         </div>
       </CardContent>
     </Card>
