@@ -5,6 +5,7 @@ function Login() {
   const [correo, setCorreo] = useState("");
   const [contrasena, setContrasena] = useState("");
   const [nombre, setNombre] = useState(""); // solo para regsitro
+  const [telefono, setTelefono] = useState("");
   const [error, setError] = useState("");
 
   // Registro
@@ -24,6 +25,7 @@ function Login() {
       nombre,
       correo,
       contrasena,
+      telefono,
       rol: 2,
     };
 
@@ -59,6 +61,14 @@ function Login() {
           placeholder="Contraseña"
           value={contrasena}
           onChange={(e) => setContrasena(e.target.value)}
+          className="login-input"
+          required
+        />
+         <input
+          type="text"
+          placeholder="Telefono"
+          value={telefono}
+          onChange={(e) => setTelefono(e.target.value)}
           className="login-input"
           required
         />

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 import Login from "./Vistas/Login";
+import Registro from "./Vistas/Registro"; 
 import { Menuadmin } from "./Vistas/Menus/MenuAdmin";
 import { Home } from "./Home";
 import { PanelDeControl } from "./Vistas/Administrador/Panel-de-control";
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/" element={<Login />} />
+        <Route path="/registro" element={<Registro />} /> 
 
         <Route path="/admin" element={<Menuadmin />}>
              <Route index element={<PanelDeControl />} />

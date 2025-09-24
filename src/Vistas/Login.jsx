@@ -41,7 +41,7 @@ function Login() {
 
   return (
     <section className="login-container">
-      <h2 className="login-title">Login</h2>
+      <h2 className="login-title">Iniciar Sesión</h2>
       <form onSubmit={handleLogin} className="login-form">
         <input
           type="email"
@@ -63,8 +63,19 @@ function Login() {
           Ingresar
         </button>
       </form>
+
       {error && <p className="login-error">{error}</p>}
+
+      <div className="toggle">
+        <p>
+          ¿No tienes cuenta?{" "}
+          <a href="/registro" className="link">
+            Regístrate
+          </a>
+        </p>
+      </div>
     </section>
+    
   );
 }
 
