@@ -10,6 +10,8 @@ const actions = [
   { title: "Analítica", icon: BarChart3 },
   { title: "Reservas", icon: Calendar },
   { title: "Mantenimiento", icon: Settings },
+{ title: "Países", icon: Settings }
+
 ]
 
 export function QuickActions() {
