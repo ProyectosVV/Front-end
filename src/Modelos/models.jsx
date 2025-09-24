@@ -1,5 +1,26 @@
+export class Rol {
+  constructor(id, nombreRol, estado = "activo") {
+    this.id = id;             
+    this.nombreRol = nombreRol; 
+    this.estado = estado;       
+  }
+
+  static registrar(nombreRol, estado = "activo") {
+    const roles = JSON.parse(sessionStorage.getItem("roles")) || [];
+
+    const nuevoRol = new Rol(roles.length + 1, nombreRol, estado);
+
+    roles.push(nuevoRol);
+
+    sessionStorage.setItem("roles", JSON.stringify(roles));
+
+    return nuevoRol;
+  }
+}
+
+
 export class Usuario {
-  constructor(id, nombre, correo, contrasena, rol = "pasajero") {
+  constructor(id, nombre, correo, contrasena, rol) {
     this.id = id;
     this.nombre = nombre;
     this.correo = correo;
@@ -7,7 +28,7 @@ export class Usuario {
     this.rol = rol;
   }
 
-   static registrar(nombre, correo, contrasena, rol = "pasajero") {
+   static registrar(nombre, correo, contrasena, rol) {
     const usuarios = JSON.parse(sessionStorage.getItem("usuarios")) || [];
     const nuevo = new Usuario(usuarios.length + 1, nombre, correo, contrasena, rol);
     usuarios.push(nuevo);

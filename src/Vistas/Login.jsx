@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./Login.css";
+import "../Diseños/Login.css";
 
 function Login({ setUser }) {
   const [correo, setCorreo] = useState("");
@@ -11,21 +11,23 @@ function Login({ setUser }) {
 
     setUser({ correo, contrasena });
 
-    // obtener usuarios guardados en sessionStorage
     const usuarios = JSON.parse(sessionStorage.getItem("usuarios")) || [];
 
-    // buscar si existe el usuario con correo y contraseña
     const user = usuarios.find(
       (u) => u.correo === correo && u.contrasena === contrasena
     );
 
     if (user) {
-      // guardar el usuario logueado en sessionStorage
       sessionStorage.setItem("sesionActiva", JSON.stringify(user));
+
+      
+
+
+
       alert("Bienvenido " + user.nombre);
 
       // redirigir según rol
-      if (user.rol === "admin") {
+      if (user.rol === 1) {
         window.location.href = "/admin";
       } else {
         window.location.href = "/reservas";
