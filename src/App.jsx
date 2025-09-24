@@ -1,8 +1,10 @@
-import './App.css';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+
 import Login from "./Vistas/Login";
-import { PanelDeControl } from "./Vistas/Administrador/Panel-de-control";  // Home para admin
-import { Home } from "./Home"; // Home para pasajero
-import { useState, useEffect } from 'react';
+import { Menuadmin } from "./Vistas/Menus/MenuAdmin";
+import { Home } from "./Home";
+import { PanelDeControl } from "./Vistas/Administrador/Panel-de-control";
 
 function App() {
   const [user, setUser] = useState(() => {
@@ -10,31 +12,21 @@ function App() {
     return savedUser ? JSON.parse(savedUser) : null;
   });
 
-  useEffect(() => {
-    if (user) {
-      
-    }
-  }, [user]);
-
-  // Decide qué panel renderizar según el rol
-  const renderPanel = () => {
-    if (!user) return <Login setUser={setUser} />;
-
-    switch(user.rol) { // si guardaste rol como número (1=admin, 2=pasajero)
-      case 1:
-        return <PanelDeControl user={user} />;
-      case 2:
-        return <Home user={user} />;
-      default:
-        return <Login setUser={setUser} />; // fallback por si el rol no existe
-    }
-  }
-
   return (
-    <div className="App">
-      {renderPanel()}
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route path="/login" element={<Login setUser={setUser} />} />
+        <Route path="/" element={<Login />} />
+
+        <Route path="/admin" element={<Menuadmin />}>
+             <Route index element={<PanelDeControl />} />
+         </Route>
+
+
+        <Route path="*" element={<Navigate to={user ? (user.rol === 1 ? "/admin" : "/pasajero") : "/login"} />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;

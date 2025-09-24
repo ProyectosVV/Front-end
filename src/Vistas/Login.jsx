@@ -1,10 +1,12 @@
 import { useState } from "react";
 import "../Diseños/Login.css";
 
-function Login({ setUser }) {
+function Login() {
   const [correo, setCorreo] = useState("");
   const [contrasena, setContrasena] = useState("");
   const [error, setError] = useState("");
+  const [user, setUser] = useState(null);
+
 
   const handleLogin = (e) => {
     e.preventDefault();

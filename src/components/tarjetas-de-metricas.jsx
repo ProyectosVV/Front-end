@@ -1,54 +1,48 @@
-import { Card, CardContent } from "@/components/ui/card"
 import { Users, DollarSign, Calendar } from "lucide-react"
+import "../Diseños/Tarjetas_de_metricas.css"
 
 const metrics = [
   {
     title: "Vuelos Hoy",
     value: "24",
     icon: Calendar,
-    color: "text-primary",
-    bgColor: "bg-primary/10",
+    color: "bg-primary",
   },
   {
     title: "Reservas",
     value: "156",
     icon: Users,
-    color: "text-success",
-    bgColor: "bg-success/10",
+    color: "bg-green",
   },
   {
     title: "Ingresos",
     value: "$45.2K",
     icon: DollarSign,
-    color: "text-primary",
-    bgColor: "bg-primary/10",
+    color: "bg-blue",
   },
   {
     title: "Pasajeros",
     value: "1,234",
     icon: Users,
-    color: "text-warning",
-    bgColor: "bg-warning/10",
+    color: "bg-yellow",
   },
 ]
 
 export function MetricsCards() {
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+    <div className="metrics-grid">
       {metrics.map((metric, index) => (
-        <Card key={index} className="border-border">
-          <CardContent className="p-4">
-            <div className="flex items-center gap-3">
-              <div className={`p-2 rounded-lg ${metric.bgColor}`}>
-                <metric.icon className={`w-5 h-5 ${metric.color}`} />
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">{metric.title}</p>
-                <p className="text-2xl font-bold text-foreground">{metric.value}</p>
-              </div>
+        <div key={index} className="metric-card">
+          <div className="metric-content">
+            <div className={`metric-icon ${metric.color}`}>
+              <metric.icon size={22} />
             </div>
-          </CardContent>
-        </Card>
+            <div>
+              <p className="metric-title">{metric.title}</p>
+              <p className="metric-value">{metric.value}</p>
+            </div>
+          </div>
+        </div>
       ))}
     </div>
   )

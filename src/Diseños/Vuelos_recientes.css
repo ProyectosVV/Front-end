@@ -1,0 +1,113 @@
+/* Tarjeta principal */
+.card {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  padding: 20px;
+  max-width: 700px;
+  margin-left: 20px;
+}
+
+/* Header */
+.card-header {
+  margin-bottom: 16px;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f1f1f;
+}
+
+/* Contenido con lista de vuelos */
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Cada fila de vuelo */
+.flight-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fafafa;
+  padding: 12px 16px;
+  border-radius: 10px;
+}
+
+/* Parte izquierda: icono + info */
+.flight-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Cuadro del icono */
+.flight-icon {
+  background-color: #e5e5e5;
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flight-icon svg {
+  width: 18px;
+  height: 18px;
+  color: #555;
+}
+
+/* Texto */
+.flight-text p {
+  margin: 0;
+}
+
+.flight-id {
+  font-weight: 600;
+  color: #1f1f1f;
+}
+
+.flight-route {
+  font-size: 14px;
+  color: #777;
+}
+
+/* Parte derecha */
+.flight-status {
+  text-align: right;
+}
+
+/* Badge */
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+/* Colores del estado */
+.badge-en-vuelo {
+  background-color: #1f1f1f;
+  color: #fff;
+}
+
+.badge-a-tiempo {
+  background-color: transparent;
+  color: #1f1f1f;
+}
+
+.badge-retrasado {
+  background-color: red;
+  color: #fff;
+}
+
+/* Hora */
+.flight-time {
+  font-size: 13px;
+  color: #666;
+}

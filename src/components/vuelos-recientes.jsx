@@ -1,6 +1,6 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { Plane } from "lucide-react"
+import "../Diseños/Vuelos_recientes.css"
+
 
 const flights = [
   {
@@ -8,49 +8,49 @@ const flights = [
     route: "MAD → BCN",
     time: "14:30",
     status: "En vuelo",
-    statusColor: "bg-primary text-primary-foreground",
+    statusClass: "badge-en-vuelo",
   },
   {
     id: "SC102",
     route: "BCN → MAD",
     time: "16:45",
     status: "A tiempo",
-    statusColor: "bg-success text-success-foreground",
+    statusClass: "badge-a-tiempo",
   },
   {
     id: "SC103",
     route: "MAD → VLC",
     time: "18:20",
     status: "Retrasado",
-    statusColor: "bg-destructive text-destructive-foreground",
+    statusClass: "badge-retrasado",
   },
 ]
 
 export function RecentFlights() {
   return (
-    <Card className="border-border">
-      <CardHeader>
-        <CardTitle className="text-lg font-semibold text-foreground">Vuelos Recientes</CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-4">
+    <div className="card">
+      <div className="card-header">
+        <h2 className="card-title">Vuelos Recientes</h2>
+      </div>
+      <div className="card-content">
         {flights.map((flight) => (
-          <div key={flight.id} className="flex items-center justify-between p-3 rounded-lg bg-muted/50">
-            <div className="flex items-center gap-3">
-              <div className="p-2 bg-primary/10 rounded-lg">
-                <Plane className="w-4 h-4 text-primary" />
+          <div key={flight.id} className="flight-item">
+            <div className="flight-info">
+              <div className="flight-icon">
+                <Plane />
               </div>
-              <div>
-                <p className="font-medium text-foreground">{flight.id}</p>
-                <p className="text-sm text-muted-foreground">{flight.route}</p>
+              <div className="flight-text">
+                <p className="flight-id">{flight.id}</p>
+                <p className="flight-route">{flight.route}</p>
               </div>
             </div>
-            <div className="text-right">
-              <Badge className={`${flight.statusColor} mb-1`}>{flight.status}</Badge>
-              <p className="text-sm text-muted-foreground">{flight.time}</p>
+            <div className="flight-status">
+              <span className={`badge ${flight.statusClass}`}>{flight.status}</span>
+              <p className="flight-time">{flight.time}</p>
             </div>
           </div>
         ))}
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   )
 }

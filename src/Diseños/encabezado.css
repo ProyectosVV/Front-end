@@ -1,0 +1,105 @@
+.header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb; /* gris claro */
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo + texto */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-logo {
+  width: 100px;
+  height: 45px;
+  border-radius: 8px; /* usa 50% si lo quieres circular */
+  object-fit: cover;
+}
+
+.header-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827; /* gris oscuro */
+}
+
+/* Search */
+.header-search {
+  position: relative;
+  display: none; /* oculto en mobile */
+}
+
+@media (min-width: 768px) {
+  .header-search {
+    display: block;
+  }
+}
+
+.header-search input {
+  width: 250px;
+  padding: 8px 12px 8px 36px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #111827;
+}
+
+.header-search input:focus {
+  outline: none;
+  border-color: #2563eb; /* azul */
+}
+
+.header-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: #6b7280;
+}
+
+/* Botones */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-button {
+  background: none;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  position: relative;
+}
+
+.header-button:hover {
+  background-color: #f3f4f6; /* gris hover */
+  border-radius: 6px;
+}
+
+.header-icon {
+  width: 20px;
+  height: 20px;
+  color: #111827;
+}
+
+/* Notificación roja */
+.header-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 8px;
+  height: 8px;
+  background-color: #ef4444; /* rojo */
+  border-radius: 50%;
+}

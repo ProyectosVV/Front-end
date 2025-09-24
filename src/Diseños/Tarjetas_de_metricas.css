@@ -1,0 +1,76 @@
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+@media (min-width: 1024px) {
+  .metrics-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.metric-card {
+  border: 1px solid #e5e7eb; /* gris claro */
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s ease;
+}
+
+.metric-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+.metric-content {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.metric-icon {
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.metric-title {
+  font-size: 14px;
+  color: #6b7280; /* gris medio */
+  margin: 0;
+}
+
+.metric-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #1f2937; /* gris oscuro */
+  margin: 0;
+}
+
+/* Colores personalizados */
+.bg-blue {
+  background-color: #dbeafe; /* azul suave */
+  color: #2563eb; /* azul fuerte */
+}
+
+.bg-green {
+  background-color: #dcfce7; /* verde suave */
+  color: #16a34a; /* verde fuerte */
+}
+
+.bg-yellow {
+  background-color: #fef9c3; /* amarillo suave */
+  color: #ca8a04; /* amarillo fuerte */
+}
+
+.bg-primary {
+  background-color: #e0e7ff; /* violeta suave */
+  color: #4f46e5; /* violeta fuerte */
+}

@@ -1,0 +1,41 @@
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff; /* Fondo blanco */
+  border-top: 1px solid #ddd; /* Línea superior */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px 0;
+  z-index: 100;
+}
+
+.bottom-nav button {
+  background: none;
+  border: none;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+}
+
+.bottom-nav button svg {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 4px;
+}
+
+.bottom-nav button.active {
+  color: #007bff; /* Color principal (azul) */
+  font-weight: 600;
+}
+
+.bottom-nav button:hover {
+  color: #000;
+}
