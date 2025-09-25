@@ -3,6 +3,12 @@
   padding: 20px;
 }
 
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;   
+  gap: 1px;         
+}
+
 .headerPais {
   display: flex;
   justify-content: space-between;

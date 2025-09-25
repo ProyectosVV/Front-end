@@ -7,6 +7,7 @@ import { Menuadmin } from "./Vistas/Menus/MenuAdmin";
 import { Home } from "./Home";
 import { PanelDeControl } from "./Vistas/Administrador/Panel-de-control";
 import { Paises } from "./Vistas/Administrador/Paises";
+import { Ciudades } from "./Vistas/Administrador/Ciudades";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/admin" element={<Menuadmin />}>
              <Route index element={<PanelDeControl />} />
             <Route path="Paises" element={<Paises />} /> 
+            <Route path="ciudades/:id_paises" element={<Ciudades />} /> 
 
          </Route>
 

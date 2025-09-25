@@ -1,0 +1,149 @@
+.card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  margin: 10px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  border-bottom: 1px solid #eee;
+  background: #fafafa;
+}
+
+.pais-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bandera {
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.subcodigo {
+  font-size: 17px;
+  font-weight: 600;
+  color: #333;
+}
+
+.acciones {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.estado {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.estado .icono {
+  margin-top: -1px;
+}
+
+.estado.activo {
+  background: #e8f9f0;
+  color: #1b7a46;
+  border: 1px solid #b3e5cc;
+}
+
+.estado.inactivo {
+  background: #fbeaea;
+  color: #b3261e;
+  border: 1px solid #f5c2c0;
+}
+
+.estado.extra {
+  background: #eaf2fb;
+  color: #1e3a8a;
+  border: 1px solid #b3c9f5;
+}
+
+.card-footer {
+  padding: 14px 18px;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: space-around;
+  background: #fdfdfd;
+}
+
+.btn {
+  border: none;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 400;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 2px;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+/* Botón Editar */
+.btn.editar {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #fff;
+}
+.btn.editar:hover {
+  background: linear-gradient(135deg, #1e40af, #1d4ed8);
+}
+
+/* Botón Activar */
+.btn.activar {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #fff;
+}
+.btn.activar:hover {
+  background: linear-gradient(135deg, #15803d, #166534);
+}
+
+/* Botón Desactivar */
+.btn.desactivar {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #fff;
+}
+.btn.desactivar:hover {
+  background: linear-gradient(135deg, #991b1b, #b91c1c);
+}
+
+/* Botón Agregar */
+.btn.agregar {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  color: #fff;
+}
+.btn.agregar:hover {
+  background: linear-gradient(135deg, #5b21b6, #6d28d9);
+}
