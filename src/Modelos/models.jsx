@@ -1,3 +1,98 @@
+export class TipoVuelo {
+  constructor(id, nombreTipoVuelo, estado = 1) {
+    this.id = id;
+    this.nombreTipoVuelo = nombreTipoVuelo;
+    this.estado = estado;
+  }
+
+  static registrar(nombreTipoVuelo, estado = 1) {
+    const tiposVuelo = JSON.parse(sessionStorage.getItem("tiposVuelo")) || [];
+
+    const nuevoTipoVuelo = new TipoVuelo(
+      tiposVuelo.length + 1,
+      nombreTipoVuelo,
+      estado
+    );
+
+    tiposVuelo.push(nuevoTipoVuelo);
+
+    sessionStorage.setItem("tiposVuelo", JSON.stringify(tiposVuelo));
+
+    return nuevoTipoVuelo;
+  }
+
+  static obtenerTodos() {
+    return JSON.parse(sessionStorage.getItem("tiposVuelo")) || [];
+  }
+}
+
+export class TipoRuta {
+  constructor(id, nombreTipoRuta, estado = 1) {
+    this.id = id;
+    this.nombreTipoRuta = nombreTipoRuta;
+    this.estado = estado;
+  }
+
+  static registrar(nombreTipoRuta, estado = 1) {
+    const tiposRuta = JSON.parse(sessionStorage.getItem("tiposRuta")) || [];
+
+    const nuevoTipoRuta = new TipoRuta(
+      tiposRuta.length + 1,
+      nombreTipoRuta,
+      estado
+    );
+
+    tiposRuta.push(nuevoTipoRuta);
+
+    sessionStorage.setItem("tiposRuta", JSON.stringify(tiposRuta));
+
+    return nuevoTipoRuta;
+  }
+
+  static obtenerTodos() {
+    return JSON.parse(sessionStorage.getItem("tiposRuta")) || [];
+  }
+}
+
+
+
+export class Ruta {
+  constructor(id, origen, destino, duracion, tipoRutaId, estado = 1) {
+    this.id = id;
+    this.origen = origen;
+    this.destino = destino;
+    this.duracion = duracion;
+    this.tipoRutaId = tipoRutaId;
+    this.estado = estado;
+  }
+
+  // Registrar una nueva ruta
+  static registrar(origen, destino, duracion, tipoRutaId, estado = 1) {
+    const rutas = JSON.parse(sessionStorage.getItem("rutas")) || [];
+
+    const nuevoId = rutas.length > 0 ? rutas[rutas.length - 1].id + 1 : 1;
+
+    const nuevaRuta = new Ruta(nuevoId, origen, destino, duracion, tipoRutaId, estado);
+
+    rutas.push(nuevaRuta);
+
+    sessionStorage.setItem("rutas", JSON.stringify(rutas));
+
+    return nuevaRuta;
+  }
+
+  // Obtener todas las rutas
+  static obtenerTodos() {
+    return JSON.parse(sessionStorage.getItem("rutas")) || [];
+  }
+
+  // Obtener rutas activas
+  static obtenerActivas() {
+    return (JSON.parse(sessionStorage.getItem("rutas")) || []).filter(ruta => ruta.estado === 1);
+  }
+}
+
+
 export class Aeropuerto {
   constructor(id, nombreAeropuerto, ciudadId, tipoAeropuertoId, estado = 1) {
     this.id = id;

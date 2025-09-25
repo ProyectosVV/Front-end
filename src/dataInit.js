@@ -2,6 +2,8 @@
 import { Usuario } from "./Modelos/models";
 import { Rol } from "./Modelos/models";
 import { TipoAeropuerto } from "./Modelos/models.jsx"; // Ajusta la ruta si es necesario
+import { TipoRuta } from "./Modelos/models.jsx"; // Ajusta la ruta si es necesario
+import { TipoVuelo } from "./Modelos/models.jsx"; // Ajusta la ruta si es necesario
 
 const tiposAeropuertoDemo = [
   new TipoAeropuerto(1, "Internacional"),
@@ -47,4 +49,26 @@ const clasesAsientoDemo = [
 if (!sessionStorage.getItem("clasesAsiento")) {
   sessionStorage.setItem("clasesAsiento", JSON.stringify(clasesAsientoDemo));
   console.log("Clases de Asiento inicializadas en sessionStorage ✅");
+}
+
+
+const tiposRutaDemo = [
+  new TipoRuta(1, "Directa"),
+  new TipoRuta(2, "Con escalas"),
+  new TipoRuta(3, "Charter"),
+];
+
+if (!sessionStorage.getItem("tiposRuta")) {
+  sessionStorage.setItem("tiposRuta", JSON.stringify(tiposRutaDemo));
+}
+
+
+const tiposVueloDemo = [
+  new TipoVuelo(1, "Comercial"),
+  new TipoVuelo(2, "Privado"),
+  new TipoVuelo(3, "Carga"),
+];
+
+if (!sessionStorage.getItem("tiposVuelo")) {
+  sessionStorage.setItem("tiposVuelo", JSON.stringify(tiposVueloDemo));
 }
