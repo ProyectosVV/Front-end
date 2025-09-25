@@ -1,41 +1,29 @@
-import { Button } from "@/components/ui/button"
-import { LayoutDashboard, Plane, Calendar, Settings } from "lucide-react"
-import "../Diseños/navegacion-de-fondo.css"
+import { LayoutDashboard, Plane, Calendar, Settings } from "lucide-react";
+import { NavLink } from "react-router-dom";
+import "../Diseños/navegacion-de-fondo.css";
+
 const navItems = [
-  {
-    title: "Dashboard",
-    icon: LayoutDashboard,
-    active: true,
-  },
-  {
-    title: "Vuelos",
-    icon: Plane,
-    active: false,
-  },
-  {
-    title: "Reservas",
-    icon: Calendar,
-    active: false,
-  },
-  {
-    title: "Admin",
-    icon: Settings,
-    active: false,
-  },
-]
+  { title: "Dashboard", icon: LayoutDashboard, path: "/dashboard" },
+  { title: "Vuelos", icon: Plane, path: "/vuelos" },
+  { title: "Reservas", icon: Calendar, path: "/reservas" },
+  { title: "Admin", icon: Settings, path: "/admin" },
+];
 
 export function BottomNavigation() {
   return (
     <nav className="bottom-nav">
       {navItems.map((item, index) => (
-        <button
+        <NavLink
           key={index}
-          className={item.active ? "active" : ""}
+          to={item.path}
+          className={({ isActive }) =>
+            `nav-button ${isActive ? "active" : ""}`
+          }
         >
-          <item.icon />
-          <span>{item.title}</span>
-        </button>
+          <item.icon className="nav-icon" />
+          <span className="nav-text">{item.title}</span>
+        </NavLink>
       ))}
     </nav>
-  )
+  );
 }

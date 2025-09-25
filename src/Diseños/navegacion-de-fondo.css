@@ -39,3 +39,41 @@
 .bottom-nav button:hover {
   color: #000;
 }
+
+.bottom-nav a {
+  text-decoration: none;  
+}
+
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: #fff;
+  padding: 10px 0;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #555;
+  padding: 5px 10px;
+  border-radius: 8px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-button:hover {
+  background-color: #f0f0f0;
+}
+
+
+
+.nav-icon {
+  margin-bottom: 2px;
+}
+
+.nav-text {
+  font-size: 12px;
+}
+
