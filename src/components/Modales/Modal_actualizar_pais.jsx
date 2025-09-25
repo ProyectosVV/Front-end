@@ -68,15 +68,14 @@ export function ModalActualizarPais({ id, nombreInicial, estadoInicial, onClose 
             <div className="form-group">
       <label>Estado</label>
       <select
-  value={estado}
-  onChange={(e) => setEstado(Number(e.target.value))}
-  required
->
-  <option value="">-- Selecciona --</option>
-  <option value={1}>Activo</option>
-  <option value={0}>Inactivo</option>
-</select>
-
+        value={estado}
+        onChange={(e) => setEstado(e.target.value)}
+        required
+      >
+        <option value="">-- Selecciona --</option>
+        <option value="Activo">Activo</option>
+        <option value="Inactivo">Inactivo</option>
+      </select>
     </div>
 
             <div className="actions">
