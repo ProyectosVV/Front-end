@@ -170,3 +170,39 @@ export class Reserva {
     this.estado = "pendiente";
   }
 }
+
+export class Registro {
+  constructor(id, nombre, correo, contrasena, telefono) {
+    this.id = id;
+    this.nombre = nombre;
+    this.correo = correo;
+    this.contrasena = contrasena;
+    this.telefono = telefono;
+  }
+}
+
+export class ClaseAsiento {
+  constructor(id, nombre, estado=1) {
+    this.id = id;
+    this.nombre = nombre;
+    this.estado = estado;
+    
+  }
+
+  static registrar(nombre, estado = 1) {
+    const clases = JSON.parse(sessionStorage.getItem("clasesAsiento")) || [];
+    const nuevaClase = new ClaseAsiento(clases.length + 1, nombre, estado);
+    clases.push(nuevaClase);
+    sessionStorage.setItem("clasesAsiento", JSON.stringify(clases));
+    return nuevaClase;
+  }
+}
+
+
+export class Asiento {
+  constructor(id, tipoUbicacion, claseId) {
+    this.id = id;
+    this.tipoUbicacion= tipoUbicacion;
+    this.claseId = claseId;
+  }
+  }

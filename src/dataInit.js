@@ -37,3 +37,14 @@ export function initUsuarios() {
     console.log("Usuarios inicializados en sessionStorage ✅");
   }
 }
+
+const clasesAsientoDemo = [
+  { id: 1, nombre: "Económica", estado: true },
+  { id: 2, nombre: "Ejecutiva", estado: true },
+  { id: 3, nombre: "Primera Clase", estado: true },
+];
+
+if (!sessionStorage.getItem("clasesAsiento")) {
+  sessionStorage.setItem("clasesAsiento", JSON.stringify(clasesAsientoDemo));
+  console.log("Clases de Asiento inicializadas en sessionStorage ✅");
+}

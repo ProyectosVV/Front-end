@@ -11,9 +11,11 @@ import { Ciudades } from "./Vistas/Administrador/Ciudades";
 import { Aeropuertos } from "./Vistas/Administrador/Aeropuerto";
 
 
+
 function App() {
   const [user, setUser] = useState(() => {
     const savedUser = sessionStorage.getItem("sesionActiva");
+    const ClaseAsiento = sessionStorage.getItem("clasesAsiento");
     return savedUser ? JSON.parse(savedUser) : null;
   });
 
