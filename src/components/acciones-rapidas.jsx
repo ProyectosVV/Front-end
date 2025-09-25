@@ -13,7 +13,8 @@ const actions = [
   { title: "Analítica", icon: BarChart3 },
   { title: "Reservas", icon: Calendar },
   { title: "Mantenimiento", icon: Settings },
-  { title: "Países", icon: Globe,path: "Paises" }
+  { title: "Países", icon: Globe,path: "Paises" },
+  { title: "Aeropuertos", icon: Globe,path: "Aeropuertos" },
 ]
 
 export function QuickActions() {

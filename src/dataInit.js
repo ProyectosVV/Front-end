@@ -1,6 +1,17 @@
 // src/dataInit.js
 import { Usuario } from "./Modelos/models";
 import { Rol } from "./Modelos/models";
+import { TipoAeropuerto } from "./Modelos/models.jsx"; // Ajusta la ruta si es necesario
+
+const tiposAeropuertoDemo = [
+  new TipoAeropuerto(1, "Internacional"),
+  new TipoAeropuerto(2, "Nacional"),
+  new TipoAeropuerto(3, "Regional"),
+];
+
+if (!sessionStorage.getItem("tiposAeropuerto")) {
+  sessionStorage.setItem("tiposAeropuerto", JSON.stringify(tiposAeropuertoDemo));
+}
 
 const rolAdmin = new Rol(1, "admin");
 const rolPasajero = new Rol(2, "pasajero");

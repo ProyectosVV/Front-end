@@ -1,3 +1,62 @@
+export class Aeropuerto {
+  constructor(id, nombreAeropuerto, ciudadId, tipoAeropuertoId, estado = 1) {
+    this.id = id;
+    this.nombreAeropuerto = nombreAeropuerto;
+    this.ciudadId = ciudadId; 
+    this.tipoAeropuertoId = tipoAeropuertoId; 
+    this.estado = estado;
+  }
+
+  static registrar(nombreAeropuerto, ciudadId, tipoAeropuertoId, estado = 1) {
+    const aeropuertos = JSON.parse(sessionStorage.getItem("aeropuertos")) || [];
+
+    const nuevoAeropuerto = new Aeropuerto(
+      aeropuertos.length + 1,
+      nombreAeropuerto,
+      ciudadId,
+      tipoAeropuertoId,
+      estado
+    );
+
+    aeropuertos.push(nuevoAeropuerto);
+
+    sessionStorage.setItem("aeropuertos", JSON.stringify(aeropuertos));
+
+    return nuevoAeropuerto;
+  }
+
+  static obtenerTodos() {
+    return JSON.parse(sessionStorage.getItem("aeropuertos")) || [];
+  }
+}
+
+
+export class TipoAeropuerto {
+  constructor(id, nombreTipo, estado = 1) {
+    this.id = id;
+    this.nombreTipo = nombreTipo;
+    this.estado = estado;
+  }
+
+  static registrar(nombreTipo, estado = 1) {
+    const tipos = JSON.parse(sessionStorage.getItem("tiposAeropuerto")) || [];
+
+    const nuevoTipo = new TipoAeropuerto(tipos.length + 1, nombreTipo, estado);
+
+    tipos.push(nuevoTipo);
+
+    sessionStorage.setItem("tiposAeropuerto", JSON.stringify(tipos));
+
+    return nuevoTipo;
+  }
+
+  static obtenerTodos() {
+    return JSON.parse(sessionStorage.getItem("tiposAeropuerto")) || [];
+  }
+}
+
+
+
 export class Pais {
   constructor(id, nombrePais, estado = 1) {
     this.id = id;
