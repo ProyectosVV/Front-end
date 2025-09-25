@@ -15,6 +15,7 @@ const actions = [
   { title: "Mantenimiento", icon: Settings },
   { title: "Países", icon: Globe,path: "Paises" },
   { title: "Aeropuertos", icon: Globe,path: "Aeropuertos" },
+  { title: "Rutas", icon: Globe,path: "Rutas" },
 ]
 
 export function QuickActions() {

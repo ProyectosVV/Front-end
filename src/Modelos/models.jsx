@@ -57,22 +57,29 @@ export class TipoRuta {
 
 
 export class Ruta {
-  constructor(id, origen, destino, duracion, tipoRutaId, estado = 1) {
+  constructor(id, origenId, destinoId, duracion, tipoRutaId, estado = 1) {
     this.id = id;
-    this.origen = origen;
-    this.destino = destino;
+    this.origenId = origenId;   // FK -> Ciudad.id
+    this.destinoId = destinoId; // FK -> Ciudad.id
     this.duracion = duracion;
     this.tipoRutaId = tipoRutaId;
     this.estado = estado;
   }
 
   // Registrar una nueva ruta
-  static registrar(origen, destino, duracion, tipoRutaId, estado = 1) {
+  static registrar(origenId, destinoId, duracion, tipoRutaId, estado = 1) {
     const rutas = JSON.parse(sessionStorage.getItem("rutas")) || [];
 
     const nuevoId = rutas.length > 0 ? rutas[rutas.length - 1].id + 1 : 1;
 
-    const nuevaRuta = new Ruta(nuevoId, origen, destino, duracion, tipoRutaId, estado);
+    const nuevaRuta = new Ruta(
+      nuevoId,
+      origenId,
+      destinoId,
+      duracion,
+      tipoRutaId,
+      estado
+    );
 
     rutas.push(nuevaRuta);
 
@@ -88,7 +95,26 @@ export class Ruta {
 
   // Obtener rutas activas
   static obtenerActivas() {
-    return (JSON.parse(sessionStorage.getItem("rutas")) || []).filter(ruta => ruta.estado === 1);
+    return (JSON.parse(sessionStorage.getItem("rutas")) || []).filter(
+      (ruta) => ruta.estado === 1
+    );
+  }
+
+  // Obtener ciudades relacionadas (JOIN manual con Ciudad)
+  static obtenerConCiudades() {
+    const rutas = Ruta.obtenerTodos();
+    const ciudades = Ciudad.obtenerTodos();
+
+    return rutas.map((ruta) => {
+      const origen = ciudades.find((c) => c.id === ruta.origenId);
+      const destino = ciudades.find((c) => c.id === ruta.destinoId);
+
+      return {
+        ...ruta,
+        origenNombre: origen ? origen.nombreCiudad : "Desconocido",
+        destinoNombre: destino ? destino.nombreCiudad : "Desconocido",
+      };
+    });
   }
 }
 

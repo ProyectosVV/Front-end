@@ -9,6 +9,7 @@ import { PanelDeControl } from "./Vistas/Administrador/Panel-de-control";
 import { Paises } from "./Vistas/Administrador/Paises";
 import { Ciudades } from "./Vistas/Administrador/Ciudades";
 import { Aeropuertos } from "./Vistas/Administrador/Aeropuerto";
+import { Rutas } from "./Vistas/Administrador/Ruta";
 
 
 
@@ -30,6 +31,7 @@ function App() {
              <Route index element={<PanelDeControl />} />
             <Route path="Paises" element={<Paises />} /> 
             <Route path="Aeropuertos" element={<Aeropuertos />} /> 
+            <Route path="Rutas" element={<Rutas />} /> 
             <Route path="ciudades/:id_paises" element={<Ciudades />} /> 
 
          </Route>
