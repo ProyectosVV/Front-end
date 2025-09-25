@@ -10,7 +10,7 @@ import { Paises } from "./Vistas/Administrador/Paises";
 import { Ciudades } from "./Vistas/Administrador/Ciudades";
 import { Aeropuertos } from "./Vistas/Administrador/Aeropuerto";
 import { Rutas } from "./Vistas/Administrador/Ruta";
-
+import { Modelos } from "./Vistas/Administrador/Modelos";
 
 
 function App() {
@@ -32,6 +32,7 @@ function App() {
             <Route path="Paises" element={<Paises />} /> 
             <Route path="Aeropuertos" element={<Aeropuertos />} /> 
             <Route path="Rutas" element={<Rutas />} /> 
+            <Route path="Modelos" element={<Modelos />} /> 
             <Route path="ciudades/:id_paises" element={<Ciudades />} /> 
 
          </Route>

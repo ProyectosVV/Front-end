@@ -16,6 +16,8 @@ const actions = [
   { title: "Países", icon: Globe,path: "Paises" },
   { title: "Aeropuertos", icon: Globe,path: "Aeropuertos" },
   { title: "Rutas", icon: Globe,path: "Rutas" },
+  { title: "Modelos Aviones", icon: Globe,path: "Modelos" },
+
 ]
 
 export function QuickActions() {

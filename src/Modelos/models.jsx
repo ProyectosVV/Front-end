@@ -320,10 +320,38 @@ export class ClaseAsiento {
 }
 
 
-export class Asiento {
-  constructor(id, tipoUbicacion, claseId) {
+
+export class ModeloAvion {
+  constructor(id, nombre, capacidadId, estado = 1) {
     this.id = id;
-    this.tipoUbicacion= tipoUbicacion;
-    this.claseId = claseId;
+    this.nombre = nombre;
+    this.capacidadId = capacidadId;
+    this.estado = estado;
   }
+
+  static registrar(nombre, capacidadId, estado = 1) {
+    const modelos = JSON.parse(sessionStorage.getItem("modelosAvion")) || [];
+    const nuevoModelo = new ModeloAvion(modelos.length + 1, nombre, capacidadId, estado);
+    modelos.push(nuevoModelo);
+    sessionStorage.setItem("modelosAvion", JSON.stringify(modelos));
+    return nuevoModelo;
   }
+}
+
+export class Capacidad {
+  constructor(id, cantidad, estado = 1) {
+    this.id = id;
+    this.cantidad = cantidad;
+    this.estado = estado;
+  }
+
+  static registrar(cantidad, estado = 1) {
+    const capacidades = JSON.parse(sessionStorage.getItem("capacidades")) || [];
+    const nuevaCapacidad = new Capacidad(capacidades.length + 1, cantidad, estado);
+    capacidades.push(nuevaCapacidad);
+    sessionStorage.setItem("capacidades", JSON.stringify(capacidades));
+    return nuevaCapacidad;
+  }
+}
+
+
