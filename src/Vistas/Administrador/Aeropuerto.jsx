@@ -66,6 +66,8 @@ export function Aeropuertos() {
                 nombreAeropuerto={aeropuerto.nombreAeropuerto}
                 ciudadNombre={ciudad ? ciudad.nombreCiudad : "Sin ciudad"}
                 tipoAeropuertoNombre={tipo ? tipo.nombreTipo : "Sin tipo"}
+                ciudadid={aeropuerto.ciudadId}
+                tipoAeropuertoid={aeropuerto.tipoAeropuertoId}
                 estado={aeropuerto.estado}
               />
             );

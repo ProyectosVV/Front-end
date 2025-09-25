@@ -1,8 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-export function ModalActualizarAeropuerto({ id, nombreInicial, estadoInicial, ciudadId, onClose }) {
+export function ModalActualizarAeropuerto({
+  id,
+  nombreInicial,
+  estadoInicial,
+  ciudadIdInicial,
+  tipoAeropuertoIdInicial,
+  onClose
+}) {
+  // Convertimos los IDs a string para que coincidan con el value del select
   const [nombreAeropuerto, setNombreAeropuerto] = useState(nombreInicial || "");
   const [estado, setEstado] = useState(estadoInicial ?? 1);
+  const [ciudadId, setCiudadId] = useState(ciudadIdInicial?.toString() || "");
+  const [tipoAeropuertoId, setTipoAeropuertoId] = useState(tipoAeropuertoIdInicial?.toString() || "");
+  const [ciudades, setCiudades] = useState([]);
+  const [tiposAeropuerto, setTiposAeropuerto] = useState([]);
+
+  // Cargar ciudades y tipos de aeropuerto desde sessionStorage
+  useEffect(() => {
+    const ciudadesData = JSON.parse(sessionStorage.getItem("ciudades")) || [];
+    const tiposData = JSON.parse(sessionStorage.getItem("tiposAeropuerto")) || [];
+
+    setCiudades(ciudadesData);
+    setTiposAeropuerto(tiposData);
+  }, []);
 
   const handleActualizarAeropuerto = (e) => {
     e.preventDefault();
@@ -20,7 +41,7 @@ export function ModalActualizarAeropuerto({ id, nombreInicial, estadoInicial, ci
         (a) =>
           a.nombreAeropuerto.toLowerCase() === nombreAeropuerto.toLowerCase() &&
           a.id !== id &&
-          a.ciudadId === ciudadId
+          a.ciudadId === parseInt(ciudadId)
       )
     ) {
       alert("Ya existe otro aeropuerto con ese nombre en esta ciudad");
@@ -30,7 +51,9 @@ export function ModalActualizarAeropuerto({ id, nombreInicial, estadoInicial, ci
     aeropuertos[index] = {
       ...aeropuertos[index],
       nombreAeropuerto,
-      estado,
+      ciudadId: parseInt(ciudadId),
+      tipoAeropuertoId: parseInt(tipoAeropuertoId),
+      estado
     };
 
     sessionStorage.setItem("aeropuertos", JSON.stringify(aeropuertos));
@@ -63,13 +86,44 @@ export function ModalActualizarAeropuerto({ id, nombreInicial, estadoInicial, ci
             </div>
 
             <div className="form-group">
+              <label>Ciudad</label>
+              <select
+                value={ciudadId}
+                onChange={(e) => setCiudadId(e.target.value)}
+                required
+              >
+                <option value="">Seleccione una ciudad</option>
+                {ciudades.map((ciudad) => (
+                  <option key={ciudad.id} value={ciudad.id.toString()}>
+                    {ciudad.nombreCiudad}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="form-group">
+              <label>Tipo de Aeropuerto</label>
+              <select
+                value={tipoAeropuertoId}
+                onChange={(e) => setTipoAeropuertoId(e.target.value)}
+                required
+              >
+                <option value="">Seleccione un tipo</option>
+                {tiposAeropuerto.map((tipo) => (
+                  <option key={tipo.id} value={tipo.id.toString()}>
+                    {tipo.nombreTipo}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="form-group">
               <label>Estado</label>
               <select
                 value={estado}
                 onChange={(e) => setEstado(Number(e.target.value))}
                 required
               >
-                <option value="">-- Selecciona --</option>
                 <option value={1}>Activo</option>
                 <option value={0}>Inactivo</option>
               </select>
